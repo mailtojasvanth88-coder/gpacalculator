@@ -1,0 +1,228 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #eef2f7;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #34495e;
+}
+
+.courses-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.course-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  background: #f7f9fc;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.course-input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.grade-select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.credit-badge {
+  background: #3498db;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.remove-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.add-btn, .calc-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.add-btn { background: #2980b9; }
+.calc-btn { background: #27ae60; }
+
+.suggestions {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ccc;
+  max-height: 120px;
+  overflow-y: auto;
+  border-radius: 6px;
+  z-index: 100;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.suggestion-item {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background: #f0f0f0;
+}
+
+.result {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.results-box {
+  background: #f5f7fa;
+  border: 2px solid #b3c6e0;
+  border-radius: 12px;
+  padding: 24px 18px;
+  margin: 32px auto 0 auto;
+  max-width: 350px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  text-align: left;
+}
+
+.grade-info-card {
+  background: #f7faff;
+  border: 1.5px solid #b3c6e0;
+  border-radius: 10px;
+  padding: 18px 12px;
+  margin: 18px auto 0 auto;
+  max-width: 350px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  text-align: center;
+}
+
+.grade-info-card h2 {
+  margin-top: 0;
+  font-size: 1.15rem;
+  color: #2980b9;
+}
+
+.grade-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+.grade-table th, .grade-table td {
+  border: 1px solid #dbeafe;
+  padding: 6px 0;
+  font-size: 1rem;
+}
+
+.grade-table th {
+  background: #eaf3fb;
+  color: #34495e;
+}
+
+.grade-table td {
+  background: #fff;
+  color: #34495e;
+}
+
+@media (max-width: 600px) {
+  .container {
+    max-width: 98vw;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .courses-wrapper {
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .course-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .course-input,
+  .grade-select,
+  .credit-input {
+    width: 100% !important;
+    min-width: 0;
+    margin: 0 !important;
+    box-sizing: border-box;
+  }
+
+  .remove-btn {
+    align-self: flex-end;
+    margin-top: 4px;
+    width: 100%;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .add-btn, .calc-btn {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 1rem;
+  }
+
+  .results-box {
+    max-width: 98vw;
+    padding: 14px 8px;
+    font-size: 1rem;
+  }
+
+  .suggestions {
+    top: 44px;
+    font-size: 0.98rem;
+    max-height: 100px;
+  }
+}

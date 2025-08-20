@@ -82,114 +82,119 @@ function App() {
 
   return (
     <div className="container">
-      <h1>📘 Modern GPA Calculator</h1>
-      {/* Grade Info Card */}
-      <div className="grade-info-card">
-        <h2>Grade Value Table</h2>
-        <table className="grade-table">
-          <thead>
-            <tr>
-              <th>Grade</th>
-              <th>Point Value</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Object.entries(gradePoints).map(([grade, value]) => (
-              <tr key={grade}>
-                <td>{grade}</td>
-                <td>{value}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <p>Subject:{courses.length}</p>
-      <div className="courses-wrapper">
-        {courses.map((course, index) => (
-          <div key={index} className="course-card" style={{ position: "relative" }}>
-            <input
-              type="text"
-              placeholder="Course Name"
-              value={course.name}
-              onChange={(e) => handleNameChange(index, e.target.value)}
-              onBlur={() => setTimeout(() => hideSuggestions(index), 100)}
-              onFocus={() => {
-                const suggestionsState = [...showSuggestions];
-                suggestionsState[index] = true;
-                setShowSuggestions(suggestionsState);
-                
-              }}
-              className="course-input"
-              autoComplete="off"
-            />
-            {course.name && showSuggestions[index] && (
-              <div className="suggestions">
-                {subjectList
-                  .filter(s => s.name.toLowerCase().includes(course.name.toLowerCase()))
-                  .slice(0, 8)
-                  .map((s, i) => (
-                    <div
-                      key={i}
-                      className="suggestion-item"
-                      onMouseDown={() => {
-                        handleNameChange(index, s.name);
-                        hideSuggestions(index);
-                      }}
-                    >
-                      {s.name} ({s.credit} Credits)
-                    </div>
-                  ))
-                }
+      <h1>GPA Calculator</h1>
+      <div className="main-flex">
+        <div style={{ flex: 2 }}>
+          <p>Subjects: {courses.length} / 20</p>
+          <div className="courses-wrapper">
+            {courses.map((course, index) => (
+              <div key={index} className="course-card" style={{ position: "relative" }}>
+                <input
+                  type="text"
+                  placeholder="Course Name"
+                  value={course.name}
+                  onChange={(e) => handleNameChange(index, e.target.value)}
+                  onBlur={() => setTimeout(() => hideSuggestions(index), 100)}
+                  onFocus={() => {
+                    const suggestionsState = [...showSuggestions];
+                    suggestionsState[index] = true;
+                    setShowSuggestions(suggestionsState);
+                    
+                  }}
+                  className="course-input"
+                  autoComplete="off"
+                />
+                {course.name && showSuggestions[index] && (
+                  <div className="suggestions">
+                    {subjectList
+                      .filter(s => s.name.toLowerCase().includes(course.name.toLowerCase()))
+                      .slice(0, 8)
+                      .map((s, i) => (
+                        <div
+                          key={i}
+                          className="suggestion-item"
+                          onMouseDown={() => {
+                            handleNameChange(index, s.name);
+                            hideSuggestions(index);
+                          }}
+                        >
+                          {s.name} ({s.credit} Credits)
+                        </div>
+                      ))
+                    }
+                  </div>
+                )}
+                <select
+                  value={course.grade}
+                  onChange={(e) => {
+                    const updated = [...courses];
+                    updated[index].grade = e.target.value;
+                    setCourses(updated);
+                  }}
+                  className="grade-select"
+                >
+                  {Object.keys(gradePoints).map(g => (
+                    <option key={g} value={g}>{g}</option>
+                  ))}
+                </select>
+                <input
+                  type="number"
+                  min="0"
+                  max="4"
+                  value={course.credit}
+                  onChange={e => {
+                    const updated = [...courses];
+                    updated[index].credit = Number(e.target.value);
+                    setCourses(updated);
+                  }}
+                  className="credit-input"
+                  style={{ width: 60, marginLeft: 8, marginRight: 8 }}
+                  title="Edit credits for custom subject"
+                />
+                <button className="remove-btn" onClick={() => removeCourse(index)}>✕</button>
               </div>
-            )}
-            <select
-              value={course.grade}
-              onChange={(e) => {
-                const updated = [...courses];
-                updated[index].grade = e.target.value;
-                setCourses(updated);
-              }}
-              className="grade-select"
-            >
-              {Object.keys(gradePoints).map(g => (
-                <option key={g} value={g}>{g}</option>
-              ))}
-            </select>
-            <input
-              type="number"
-              min="0"
-              max="4"
-              value={course.credit}
-              onChange={e => {
-                const updated = [...courses];
-                updated[index].credit = Number(e.target.value);
-                setCourses(updated);
-              }}
-              className="credit-input"
-              style={{ width: 60, marginLeft: 8, marginRight: 8 }}
-              title="Edit credits for custom subject"
-            />
-            <button className="remove-btn" onClick={() => removeCourse(index)}>✕</button>
+            ))}
           </div>
-        ))}
-      </div>
-      <div className="buttons">
-        <button className="add-btn" onClick={addCourse}>+ Add Course</button>
-        <button className="calc-btn" onClick={calculateGPA}>Calculate GPA</button>
-      </div>
-      {gpa && (
-        <div className="results-box">
-          <div className="result">
-            🎯 Your GPA: {gpa}
+          <div className="buttons">
+            <button className="add-btn" onClick={addCourse}>+ Add Course</button>
+            <button className="calc-btn" onClick={calculateGPA}>Calculate GPA</button>
           </div>
-          <div className="result">
-            📊 Total Credits: {totalCredits}
-          </div>
-          <div className="result">
-            🏆 Total Grade Points: {totalPoints}
+          {gpa && (
+            <div className="results-box">
+              <div className="result">
+                <i class="fa-solid fa-calculator">Your GPA: {gpa}</i> 
+              </div>
+              <div className="result">
+                 Total Credits: {totalCredits}
+              </div>
+              <div className="result">
+                 Total Grade Points: {totalPoints}
+              </div>
+            </div>
+          )}
+        </div>
+        <div style={{ flex: 1 }}>
+          <div className="grade-info-card">
+            <h2>Grade Value Table</h2>
+            <table className="grade-table">
+              <thead>
+                <tr>
+                  <th>Grade</th>
+                  <th>Point Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.entries(gradePoints).map(([grade, value]) => (
+                  <tr key={grade}>
+                    <td>{grade}</td>
+                    <td>{value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }

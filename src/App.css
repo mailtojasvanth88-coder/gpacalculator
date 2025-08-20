@@ -166,6 +166,25 @@ h1 {
   color: #34495e;
 }
 
+.main-flex {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .main-flex {
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+  }
+  .grade-info-card {
+    margin: 18px auto 0 auto;
+    max-width: 98vw;
+  }
+}
+
 @media (max-width: 600px) {
   .container {
     max-width: 98vw;

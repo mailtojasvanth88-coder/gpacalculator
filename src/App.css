@@ -1,209 +1,289 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #eef2f7;
+  background-color: black;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+  
 }
 
 .container {
-  max-width: 700px;
-  margin: 50px auto;
-  padding: 25px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 32px 24px;
+  background-color: #4a4a4a 1;
+  border-radius: 18px;
+    min-height: 80vh;          
+  overflow: visible;         
 }
 
 h1 {
   text-align: center;
-  color: #34495e;
+  color: #2d2d44;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 
 .courses-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
+  gap: 10px;
+  margin-top: 18px;
+  overflow-y: visible;
+  padding-right: 0;
 }
 
 .course-card {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 15px;
-  background: #f7f9fc;
-  border-radius: 10px;
-  position: relative;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  gap: 6px;
+  padding: 8px 8px;
+  background: #4a4a44 1;
+  border-radius: 8px;
+  font-size: 0.97rem;
+  min-height: 36px;
+  box-shadow: 0 1px 4px rgba(216, 218, 221, 0.07);
+}
+
+.course-card:hover {
+  box-shadow: 0 4px 18px rgba(216, 218, 221, 0.13);
 }
 
 .course-input {
-  flex: 1;
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  flex: 2;
+  padding: 5px 8px;
+  border-radius: 5px;
+  border: 1.2px solid #38ffee;
+  font-size: 0.97rem;
+  background: #000000;
+  color: #ffffff;
+  min-width: 80px;
+  max-width: 160px;
+}
+
+.course-input:focus {
+  border: 1.5px solid #0e96f1;
+  outline: none;
 }
 
 .grade-select {
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  padding: 5px 7px;
+  border-radius: 5px;
+  border: 1.2px solid #fc0000;
+  background: #000000;
+  color: #ffffff;
+  font-size: 0.97rem;
+  min-width: 60px;
+  max-width: 80px;
 }
 
-.credit-badge {
-  background: #3498db;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 8px;
-  font-size: 14px;
+.grade-select:focus {
+  border: 1.5px solid #27ae60;
+  outline: none;
+}
+
+.credit-input {
+  width: 48px;
+  padding: 5px 6px;
+  border-radius: 5px;
+  border: 1.2px solid #daff06;
+  background: #000000;
+  font-size: 0.97rem;
+  color: #ffffff;
+}
+
+.credit-input:focus {
+  border: 1.5px solid #e67e22;
+  outline: none;
 }
 
 .remove-btn {
-  background: #e74c3c;
-  color: white;
+  background-color: rgb(0, 0, 0 , 2);
+  color: rgb(255, 235, 235);
   border: none;
-  border-radius: 6px;
-  padding: 6px 10px;
+  border-radius: 5px;
+  padding: 4px 8px;
   cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  
+}
+
+.remove-btn:hover {
+  background: linear-gradient(90deg, #c0392b 60%, #e74c3c 100%);
+  transform: scale(1.07);
 }
 
 .buttons {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 28px;
+  gap: 18px;
 }
 
 .add-btn, .calc-btn {
-  padding: 10px 20px;
+  padding: 12px 28px;
   border: none;
-  border-radius: 8px;
-  color: white;
+  border-radius: 9px;
+  color: rgb(0, 0, 0);
   cursor: pointer;
   font-weight: bold;
+  font-size: 1.08rem;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+  transition: background 0.2s, transform 0.1s;
 }
 
-.add-btn { background: #2980b9; }
-.calc-btn { background: #27ae60; }
+.add-btn {
+  background: linear-gradient(90deg, #000000 60%, #000000 100%);
+}
+
+.add-btn:hover {
+  background: linear-gradient(90deg, #6dd5fa 60%, #2980b9 100%);
+  transform: translateY(-2px);
+}
+
+.calc-btn {
+  background: linear-gradient(90deg, #02c754 60%, #6dd5a1 100%);
+}
+
+.calc-btn:hover {
+  background: linear-gradient(90deg, #6dd5a1 60%, #27ae60 100%);
+  transform: translateY(-2px);
+}
 
 .suggestions {
   position: absolute;
-  top: 50px;
+  top: 54px;
   left: 0;
   width: 100%;
-  background: #fff;
-  border: 1px solid #ccc;
-  max-height: 120px;
+  color: #ffffff;
+  background: #000000;
+  border: 1.5px solid #b3c6e0;
+  max-height: 140px;
   overflow-y: auto;
-  border-radius: 6px;
+  border-radius: 7px;
   z-index: 100;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 14px rgba(44,62,80,0.13);
+  font-size: 1rem;
 }
 
 .suggestion-item {
-  padding: 8px;
+  padding: 10px 12px;
   cursor: pointer;
+  transition: background 0.15s;
 }
 
 .suggestion-item:hover {
-  background: #f0f0f0;
+  background: #131212;
 }
 
 .result {
-  margin-top: 25px;
+  margin-top: 18px;
   text-align: center;
-  font-size: 22px;
+  font-size: 1.18rem;
   font-weight: bold;
   color: #2c3e50;
 }
 
 .results-box {
-  background: #f5f7fa;
+  background: linear-gradient(135deg, #000000 60%, #0d0d0e 100%);
   border: 2px solid #b3c6e0;
-  border-radius: 12px;
-  padding: 24px 18px;
-  margin: 32px auto 0 auto;
-  max-width: 350px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  border-radius: 14px;
+  padding: 28px 20px;
+  margin: 36px auto 0 auto;
+  max-width: 370px;
+  box-shadow: 0 2px 12px rgba(44,62,80,0.09);
   text-align: left;
 }
 
+.results-box-top {
+  margin-top: 150px;
+  align-self: flex-end;
+}
+
 .grade-info-card {
-  background: #f7faff;
+  background: linear-gradient(135deg, #000000 60%, #000000 100%);
   border: 1.5px solid #b3c6e0;
-  border-radius: 10px;
-  padding: 18px 12px;
+  border-radius: 12px;
+  padding: 22px 16px;
   margin: 18px auto 0 auto;
   max-width: 350px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  box-shadow: 0 1px 8px rgba(44,62,80,0.08);
   text-align: center;
 }
 
 .grade-info-card h2 {
   margin-top: 0;
-  font-size: 1.15rem;
+  font-size: 1.18rem;
   color: #2980b9;
+  letter-spacing: 0.5px;
 }
 
 .grade-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 8px;
+  margin-top: 10px;
+  font-size: 1.03rem;
 }
 
 .grade-table th, .grade-table td {
-  border: 1px solid #dbeafe;
-  padding: 6px 0;
-  font-size: 1rem;
+  border: 1px solid #000000;
+  padding: 7px 0;
 }
 
 .grade-table th {
-  background: #eaf3fb;
+  background: #dfd6d6;
   color: #34495e;
+  font-weight: 600;
 }
 
 .grade-table td {
-  background: #fff;
-  color: #34495e;
+  background: #1a1919;
+  color: #ffcece;
 }
 
 .main-flex {
   display: flex;
-  gap: 32px;
+  gap: 38px;
   align-items: flex-start;
   justify-content: center;
 }
 
-@media (max-width: 900px) {
+
+
+@media (max-width: 600px) {
   .main-flex {
     flex-direction: column;
     gap: 0;
-    align-items: stretch;
+    align-items: left;
   }
-  .grade-info-card {
-    margin: 18px auto 0 auto;
-    max-width: 98vw;
+  .results-box-top {
+    margin: 24px auto 0 auto ;
+    align-self: right;
   }
 }
 
 @media (max-width: 600px) {
   .container {
-    max-width: 98vw;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 8px;
+    max-width: 99vw;
+    margin: 8px;
+    padding: 8px;
+    border-radius: 10px;
   }
 
   .courses-wrapper {
-    gap: 8px;
-    margin-top: 10px;
+    gap: 5px;
+    margin-top: 6px;
   }
 
   .course-card {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-    padding: 10px;
-    border-radius: 8px;
+    flex-direction: row;
+    
+    gap: 5px;
+    padding: 5px;
+    border-radius: 7px;
+    font-size: 0.95rem;
+    min-height: 28px;
   }
 
   .course-input,
@@ -213,6 +293,7 @@ h1 {
     min-width: 0;
     margin: 0 !important;
     box-sizing: border-box;
+    font-size: 0.95rem;
   }
 
   .remove-btn {
@@ -224,7 +305,7 @@ h1 {
   .buttons {
     flex-direction: column;
     gap: 10px;
-    margin-top: 15px;
+    margin-top: 12px;
   }
 
   .add-btn, .calc-btn {
@@ -234,8 +315,8 @@ h1 {
   }
 
   .results-box {
-    max-width: 98vw;
-    padding: 14px 8px;
+    max-width: 99vw;
+    padding: 12px 6px;
     font-size: 1rem;
   }
 
@@ -244,4 +325,74 @@ h1 {
     font-size: 0.98rem;
     max-height: 100px;
   }
+}
+
+.app-bg-video-wrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  object-fit: cover;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.grade-info-btn {
+  background: linear-gradient(90deg, #f7971e 60%, #ffd200 100%);
+  color: #222;
+  border: none;
+  border-radius: 9px;
+  padding: 12px 18px;
+  font-weight: bold;
+  font-size: 1.08rem;
+  margin-left: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+  transition: background 0.2s, transform 0.1s;
+}
+
+.grade-info-btn:hover {
+  background: linear-gradient(90deg, #ffd200 60%, #f7971e 100%);
+  transform: translateY(-2px);
+}
+
+.add-btn-inline {
+  background: linear-gradient(90deg, #2980b9 60%, #6dd5fa 100%);
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+  transition: background 0.2s, transform 0.1s;
+  margin-left: 0;
+  margin-right: 4px;
+  padding: 4px 8px;
+  min-width: 28px;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-btn-inline:hover {
+  background: linear-gradient(90deg, #6dd5fa 60%, #2980b9 100%);
+  transform: scale(1.07);
+}
+
+/* Hide the main add button in the .buttons row */
+.buttons .add-btn:not(.add-btn-inline) {
+  display: none;
 }

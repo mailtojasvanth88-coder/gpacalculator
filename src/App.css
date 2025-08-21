@@ -1,10 +1,14 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Federant&display=swap');
+
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: black;
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  
+font-family: "Federant", serif;
 }
 
 .container {
@@ -19,11 +23,22 @@ body {
 
 h1 {
   text-align: center;
-  color: #2d2d44;
+  color: #cf01ad;
   letter-spacing: 1px;
   margin-bottom: 10px;
-}
 
+}
+h2 {
+  text-align: center;
+  background: linear-gradient( #f7971e, #d8c987 );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  
+
+}
 .courses-wrapper {
   display: flex;
   flex-direction: column;
@@ -329,7 +344,7 @@ h1 {
 
 .app-bg-video-wrapper {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   width: 100vw;
   overflow-x: hidden;
 }
@@ -337,12 +352,11 @@ h1 {
 .bg-video {
   position: fixed;
   top: 0;
-  left: 0;
-  min-width: 100vw;
-  min-height: 100vh;
-  width: auto;
-  height: auto;
-  z-index: -1;
+  left: -15%;
+ 
+  width: 130%;
+  height:130%;
+  z-index: 1;
   object-fit: cover;
   opacity: 0.22;
   pointer-events: none;
@@ -368,8 +382,8 @@ h1 {
 }
 
 .add-btn-inline {
-  background: linear-gradient(90deg, #2980b9 60%, #6dd5fa 100%);
-  color: #000;
+  background: linear-gradient(90deg, #000000 60%, #000000 100%);
+  color: #f8dfdf;
   border: none;
   border-radius: 5px;
   font-size: 1.2rem;
@@ -388,11 +402,12 @@ h1 {
 }
 
 .add-btn-inline:hover {
-  background: linear-gradient(90deg, #6dd5fa 60%, #2980b9 100%);
+  background: linear-gradient(90deg, #00ff22 60%, #00ce5d 100%);
   transform: scale(1.07);
+  color: #000;
 }
 
-/* Hide the main add button in the .buttons row */
+
 .buttons .add-btn:not(.add-btn-inline) {
   display: none;
 }

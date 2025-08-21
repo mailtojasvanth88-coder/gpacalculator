@@ -96,7 +96,8 @@ function App() {
     allowFullScreen
   ></iframe>
       <div className="container">
-        <h1>📘 Modern GPA Calculator</h1>
+        <h1> GPA Calculator</h1>
+        <h2>Fun Way to Track Your GPA</h2>
         <div className="main-flex">
           <div >
             <p>Subjects: {courses.length} / 20</p>

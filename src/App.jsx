@@ -70,7 +70,7 @@ function App() {
     updated[index].name = value;
 
     const subject = subjectList.find(s => s.name.toLowerCase() === value.toLowerCase());
-    updated[index].credit = subject ? subject.credit : 3;
+    updated[index].credit = subject ? subject.credit : 0;
 
     setCourses(updated);
 
@@ -99,8 +99,8 @@ function App() {
         <h1> GPA Calculator</h1>
         <h2>Fun Way to Track Your GPA</h2>
         <div className="main-flex">
-          <div >
-            <p>Subjects: {courses.length} / 20</p>
+          <div className="input-section">
+            <p>Subjects: {courses.length} / 20</p><button className="add-btn" onClick={addCourse}>+</button>
             <div className="courses-wrapper">
               {courses.map((course, index) => (
                 <div key={index} className="course-card" >
@@ -144,15 +144,18 @@ function App() {
                       const updated = [...courses];
                       updated[index].grade = e.target.value;
                       setCourses(updated);
+                      
                     }}
                     className="grade-select"
                   >
                     {Object.keys(gradePoints).map(g => (
                       <option key={g} value={g}>{g}</option>
-                    ))}
+                      
+                    ))
+                    }
                   </select>
                   <input
-                    type="number"
+                    type=""
                     min="0"
                     max="4"
                     value={course.credit}
@@ -160,6 +163,9 @@ function App() {
                       const updated = [...courses];
                       updated[index].credit = Number(e.target.value);
                       setCourses(updated);
+                      if (Number(e.target.value) < 0 || Number(e.target.value) > 4) {
+                        alert("Credits must be between 0 and 4");
+                      }
                     }}
                     className="credit-input"
                     style={{ width: 48, marginLeft: 4, marginRight: 4 }}
@@ -192,13 +198,13 @@ function App() {
             {gpa && (
               <div className="results-box results-box-top">
                 <div className="result">
-                  🎯 Your GPA: {gpa}
+                   Your GPA: {gpa}
                 </div>
                 <div className="result">
-                  📊 Total Credits: {totalCredits}
+                   Total Credits: {totalCredits}
                 </div>
                 <div className="result">
-                  🏆 Total Grade Points: {totalPoints}
+                   Total Grade Points: {totalPoints}
                 </div>
               </div>
             )}

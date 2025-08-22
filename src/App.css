@@ -1,50 +1,47 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Federant&display=swap');
 
-
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Federant', serif;
   background-color: black;
   margin: 0;
   padding: 0;
   min-height: 100vh;
-font-family: "Federant", serif;
 }
 
 .container {
   max-width: 900px;
   margin: 40px auto;
   padding: 32px 24px;
-  background-color: #4a4a4a 1;
+  background-color: #4a4a4a70;
+  backdrop-filter: blur(12px);
   border-radius: 18px;
-    min-height: 80vh;          
-  overflow: visible;         
+  min-height: 80vh;          
+  overflow: auto;         
 }
 
 h1 {
   text-align: center;
-  color: #cf01ad;
+  color: #018ecf;
   letter-spacing: 1px;
   margin-bottom: 10px;
-
 }
+
 h2 {
   text-align: center;
-  background: linear-gradient( #f7971e, #d8c987 );
+  background: linear-gradient(#f7971e, #d8c987);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   letter-spacing: 1px;
   margin-bottom: 10px;
-  
-
 }
+
 .courses-wrapper {
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin-top: 18px;
-  overflow-y: visible;
+  overflow-y: auto;
   padding-right: 0;
 }
 
@@ -52,12 +49,12 @@ h2 {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 8px;
-  background: #4a4a44 1;
+  padding: 8px;
+ 
   border-radius: 8px;
   font-size: 0.97rem;
   min-height: 36px;
-  box-shadow: 0 1px 4px rgba(216, 218, 221, 0.07);
+ 
 }
 
 .course-card:hover {
@@ -113,7 +110,7 @@ h2 {
 }
 
 .remove-btn {
-  background-color: rgb(0, 0, 0 , 2);
+  background-color: rgb(0, 0, 0);
   color: rgb(255, 235, 235);
   border: none;
   border-radius: 5px;
@@ -121,7 +118,6 @@ h2 {
   cursor: pointer;
   font-size: 1rem;
   font-weight: bold;
-  
 }
 
 .remove-btn:hover {
@@ -144,17 +140,23 @@ h2 {
   cursor: pointer;
   font-weight: bold;
   font-size: 1.08rem;
-  box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
   transition: background 0.2s, transform 0.1s;
+}
+
+.input-section p {
+  color: #ffffff;
 }
 
 .add-btn {
   background: linear-gradient(90deg, #000000 60%, #000000 100%);
+  color: #f1f1f1;
 }
 
 .add-btn:hover {
-  background: linear-gradient(90deg, #6dd5fa 60%, #2980b9 100%);
+  background: linear-gradient(90deg, #43ec00 60%, #34ff0c 100%);
   transform: translateY(-2px);
+  color: #000;
 }
 
 .calc-btn {
@@ -168,17 +170,18 @@ h2 {
 
 .suggestions {
   position: absolute;
-  top: 54px;
-  left: 0;
-  width: 100%;
+  top: 300px;
+  left: 30%;
+  width: 50%;
   color: #ffffff;
+  display: flex;
   background: #000000;
   border: 1.5px solid #b3c6e0;
   max-height: 140px;
   overflow-y: auto;
   border-radius: 7px;
   z-index: 100;
-  box-shadow: 0 4px 14px rgba(44,62,80,0.13);
+  box-shadow: 0 4px 14px rgba(44, 62, 80, 0.13);
   font-size: 1rem;
 }
 
@@ -197,17 +200,18 @@ h2 {
   text-align: center;
   font-size: 1.18rem;
   font-weight: bold;
-  color: #2c3e50;
+  color: #ffffff;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .results-box {
   background: linear-gradient(135deg, #000000 60%, #0d0d0e 100%);
-  border: 2px solid #b3c6e0;
+  border: 2px solid #b4cae9;
   border-radius: 14px;
   padding: 28px 20px;
   margin: 36px auto 0 auto;
   max-width: 370px;
-  box-shadow: 0 2px 12px rgba(44,62,80,0.09);
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.09);
   text-align: left;
 }
 
@@ -223,7 +227,7 @@ h2 {
   padding: 22px 16px;
   margin: 18px auto 0 auto;
   max-width: 350px;
-  box-shadow: 0 1px 8px rgba(44,62,80,0.08);
+  box-shadow: 0 1px 8px rgba(44, 62, 80, 0.08);
   text-align: center;
 }
 
@@ -264,21 +268,18 @@ h2 {
   justify-content: center;
 }
 
-
-
 @media (max-width: 600px) {
   .main-flex {
     flex-direction: column;
     gap: 0;
-    align-items: left;
+    align-items: flex-start;
   }
+  
   .results-box-top {
-    margin: 24px auto 0 auto ;
-    align-self: right;
+    margin: 24px auto 0 auto;
+    align-self: flex-end;
   }
-}
 
-@media (max-width: 600px) {
   .container {
     max-width: 99vw;
     margin: 8px;
@@ -293,7 +294,6 @@ h2 {
 
   .course-card {
     flex-direction: row;
-    
     gap: 5px;
     padding: 5px;
     border-radius: 7px;
@@ -305,7 +305,6 @@ h2 {
   .grade-select,
   .credit-input {
     width: 100% !important;
-    min-width: 0;
     margin: 0 !important;
     box-sizing: border-box;
     font-size: 0.95rem;
@@ -336,7 +335,7 @@ h2 {
   }
 
   .suggestions {
-    top: 44px;
+    top: 240px;
     font-size: 0.98rem;
     max-height: 100px;
   }
@@ -353,9 +352,8 @@ h2 {
   position: fixed;
   top: 0;
   left: -15%;
- 
   width: 130%;
-  height:130%;
+  height: 130%;
   z-index: 1;
   object-fit: cover;
   opacity: 0.22;
@@ -372,7 +370,7 @@ h2 {
   font-size: 1.08rem;
   margin-left: 8px;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
   transition: background 0.2s, transform 0.1s;
 }
 
@@ -389,7 +387,7 @@ h2 {
   font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
   transition: background 0.2s, transform 0.1s;
   margin-left: 0;
   margin-right: 4px;
@@ -406,7 +404,6 @@ h2 {
   transform: scale(1.07);
   color: #000;
 }
-
 
 .buttons .add-btn:not(.add-btn-inline) {
   display: none;

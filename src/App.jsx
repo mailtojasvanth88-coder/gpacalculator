@@ -137,7 +137,9 @@ const calculateGPA = () => {
   let credits = 0;
 
   courses.forEach(c => {
-    const credit = (c.credit) || 0; if (credit <= 0); 
+    const credit = (c.credit) || 0; 
+    if (credit <= 0)
+      return; 
 
     const gradePoint = gradePoints[c.grade] ?? 0;
 
@@ -194,7 +196,7 @@ const calculateGPA = () => {
   };
 
   const clearAll = () => {
-    setCourses([{ name: "", grade: "A", credit: 0 }]);
+    setCourses([{ name: "", grade: "A", credit: "" }]);
     setGpa(null);
     setTotalCredits(0);
     setTotalPoints(0);
